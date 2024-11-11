@@ -9,6 +9,8 @@ import { SessionService } from '../../../../services/session.service';
 import { TeacherService } from '../../../../services/teacher.service';
 import { SessionApiService } from '../../services/session-api.service';
 import { DetailComponent } from './detail.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 describe('DetailComponent', () => {
   let component: DetailComponent;
@@ -51,14 +53,16 @@ describe('DetailComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         MatSnackBarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatIconModule,
+        MatCardModule
       ],
       declarations: [DetailComponent],
       providers: [
         { provide: SessionService, useValue: mockSessionService },
         { provide: SessionApiService, useValue: mockSessionApiService },
         { provide: TeacherService, useValue: mockTeacherService }
-      ]
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DetailComponent);
