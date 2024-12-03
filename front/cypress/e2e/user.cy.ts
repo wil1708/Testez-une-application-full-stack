@@ -191,6 +191,12 @@ describe('Register and Session Participation', () => {
     cy.wait('@deleteUser').its('response.statusCode').should('eq', 200)
 
     // Verify navigation to the home page after account deletion
-    //cy.url().should('eq', Cypress.config().baseUrl + '/')
+    cy.url().should('eq', Cypress.config().baseUrl)
+
+    
   })
 })
+
+
+
+
