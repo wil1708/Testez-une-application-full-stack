@@ -78,7 +78,7 @@ public class TeacherControllerTest {
             return teacherRepository.save(teacher);
         });
 
-        // Authentification comme admin et set du token dans le SecurityContext
+        // Authentification comme adminUser, génération du token JWT et set du token dans le SecurityContext
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(adminUser.getEmail(), "test!1234"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
