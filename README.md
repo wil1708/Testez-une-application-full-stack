@@ -32,10 +32,18 @@ Ce JDK est nécessaire pour faire tourner la partie back-end de l'application.
 3. Pour la ligne : spring.datasource.url=jdbc:mysql://localhost:3306/test?allowPublicKeyRetrieval=true normalement vous n'avez pas besoin de faire de changement sauf si vous avez décidé d'utiliser un autre port que 3306 pour votre base de données
    Mysql ; auquel cas modifiez la ligne avec le numéro de port choisi pour votre serveur Mysql. Si vous avez nommé votre base de données par autre chose que 'test' vous devez aussi modifier le nom de cette ligne.
 4. Ensuite modifiez les username et password des lignes spring.datasource en fonction de vos identifiants crées pour WAMP et permettre l'accès à vos bases de données par l'application back-end.
-5. Vous pouvez ensuite ouvrir le fichier SpringBootSecurityJwtApplication dans le package src->main->java pour lancer l'application, ce qui aura pour effet de remplir votre base de données nouvellement créee.
-6. Pour lancer les tests ouvrez un terminal à l'emplacement de l'application back, et lancez la commande mvn clean test.
-7. Pour obtenir le coverage de l'application back par les tests, lancez ensuite la commande mvn jacoco:report. Puis drag and drop le fichier index.html dans votre navigateur pour l'ouvrir, se trouvant dans le dossier target->site->jacoco.
-8. La configuration de la partie back-end est terminée, nous allons passer à la configuration de la partie front-end dans le prochain chapitre.
+5. Vous pouvez ensuite ouvrir le fichier SpringBootSecurityJwtApplication dans le package src->main->java pour lancer l'application, ce qui aura pour effet de créer votre base de données nouvellement créee grâce au mode update de votre fichier application.properties déjà configuré.
+6. Ensuite ouvrez votre base de données dans phpMyAdmin et lancez le script SQL suivant afin d'obtenir les données de bases nécessaires pour le fonctionnement de l'application :
+   
+INSERT INTO TEACHERS (first_name, last_name)
+VALUES ('Margot', 'DELAHAYE'),
+       ('Hélène', 'THIERCELIN');
+INSERT INTO USERS (first_name, last_name, admin, email, password)
+VALUES ('Admin', 'Admin', true, 'yoga@studio.com', '$2a$10$.Hsa/ZjUVaHqi0tp9xieMeewrnZxrZ5pQRzddUXE/WjDu2ZThe6Iq'); 
+
+7. Pour lancer les tests ouvrez un terminal à l'emplacement de l'application back, et lancez la commande mvn clean test.
+8. Pour obtenir le coverage de l'application back par les tests, lancez ensuite la commande mvn jacoco:report. Puis drag and drop le fichier index.html dans votre navigateur pour l'ouvrir, se trouvant dans le dossier target->site->jacoco.
+9. La configuration de la partie back-end est terminée, nous allons passer à la configuration de la partie front-end dans le prochain chapitre.
 
 # Installation de NodeJs
 
